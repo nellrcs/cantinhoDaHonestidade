@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-br" >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="imagens/favicon.png"/>
+    <title>APP - Área restrita</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/css.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/angular-base64-upload.min.js"></script>
+
+    <script type="text/javascript" src="js/funcoes.js"></script>
+</head>
+<body ng-app="aplicacao">
+    <div class="logout_sist">
+        <h1>Administração </h1>
+        <a href="logout" class="radius5">SAIR</a>
+    </div>
+    <div ng-view></div>
+
+</body>
+</html>
