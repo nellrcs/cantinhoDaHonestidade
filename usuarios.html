@@ -1,4 +1,4 @@
-<div class="dems_paginas">
+<div class="dems_paginas" ng-init="inicial()">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -7,76 +7,81 @@
                     <a ng-click="inicial()" class="radius5">LISTAR TODOS</a>
                     <a ng-click="inserir()" class="radius5">INSERIR NOVO</a>
                 </div>
-                    
+      
                     <div ng-show="estado.listar">   
                     <div class="title_pages col-lg-12 col-md-12 col-sm-12 col-xs-12">Usuários - <strong>Listando todos</strong></div>
                     <!--LOOP-->
-                    <div class="listagem_elementos col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="textinfo col-lg-5 col-md-5">André Cristhian</div>
-                        <div class="textinfo col-lg-5 col-md-5">andre@webinga.com.br</div>
+                    <div ng-repeat="user in usuarios" class="listagem_elementos col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="imageinfo col-lg-1 col-md-1">
+                            <img ng-src="http://chart.apis.google.com/chart?cht=qr&chl={{user.email}}&chs=350x350&chld=H|0" class="img-responsive" alt="">
+                        </div>
+                        <div class="textinfo col-lg-4 col-md-4">{{user.nome}}</div>
+                        <div class="textinfo col-lg-5 col-md-5">{{user.email}}</div>
                         <div class="botacoes col-lg-2 col-md-2">
-                            <a href="USUARIOS/EDITAR" class="editar"></a>
-                            <a href="USUARIOS/DELETAR" class="deletar"></a>
+                            <a ng-click="editar(user)" class="editar"></a>
+                            <a ng-click="apagar(user)" class="deletar"></a>
                         </div>
                     </div>
+                    <h1 ng-hide="usuarios.length" class="aviso">Não existem usuarios cadastrados</h1>
                     <!--LOOP-->
-                    </div>    
+                    </div>
 
 
                     <div ng-show="estado.inserir">
                     <div class="title_pages col-lg-12 col-md-12 col-sm-12 col-xs-12">Usuários - <strong>Inserir novo</strong></div>
-                    <form action="" method="post" name="form_acoes" id="form_acoes" class="form_acoes col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form_acoes col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-submit="salvar(usuario)">
                         <label class="col-lg-6 col-md-6 paddright">
                             <span>Nome Completo:</span>
-                            <input type="text" name="nome" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
+                            <input type="text" ng-model="usuario.nome" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
                         </label>
 
                         <label class="col-lg-6 col-md-6 paddleft">
                             <span>E-mail:</span>
-                            <input type="text" name="email" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
+                            <input type="text" ng-model="usuario.email" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
                         </label>
 
+<!--
                         <label class="col-lg-6 col-md-6 paddright">
                             <span>Login de acesso:</span>
-                            <input type="text" name="login" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
+                            <input type="text" ng-model="usuario.login" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
                         </label>
 
                         <label class="col-lg-6 col-md-6 paddleft">
                             <span>Senha:</span>
-                            <input type="password" name="senha" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
+                            <input type="password" ng-model="usuario.senha" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
                         </label>
-
+-->
                         <div class="bot_sendform col-lg-12 col-md-12">
-                            <input type="submit" name="send_form" class="radius5 send_form" id="send_form" value="CADASTRAR" />
+                            <input type="submit" class="radius5 send_form"  value="CADASTRAR" />
                         </div>
                     </form>
                     </div>
 
                     <div ng-show="estado.editar">
                     <div class="title_pages col-lg-12 col-md-12 col-sm-12 col-xs-12">Usuários - <strong>Editar usuário</strong></div>
-                    <form action="" method="post" name="form_acoes" id="form_acoes" class="form_acoes col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form_acoes col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-submit="salvar(usuario)">
                         <label class="col-lg-6 col-md-6 paddright">
                             <span>Nome Completo:</span>
-                            <input type="text" name="nome" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
+                            <input type="text" ng-model="usuario.nome" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
                         </label>
 
                         <label class="col-lg-6 col-md-6 paddleft">
                             <span>E-mail:</span>
-                            <input type="text" name="email" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
+                            <input type="text" ng-model="usuario.email" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
                         </label>
-
+<!--
                         <label class="col-lg-6 col-md-6 paddright">
                             <span>Login de acesso:</span>
-                            <input type="text" name="login" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
+                            <input type="text" ng-model="usuario.login" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
                         </label>
 
                         <label class="col-lg-6 col-md-6 paddleft">
                             <span>Senha:</span>
-                            <input type="password" name="senha" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <input type="password" ng-model="usuario.senha" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
                         </label>
-
+-->
                         <div class="bot_sendform col-lg-12 col-md-12">
-                            <input type="submit" name="send_form" class="radius5 send_form" id="send_form" value="ATUALIZAR" />
+                            <input type="submit" class="radius5 send_form"  value="CADASTRAR" />
                         </div>
                     </form>
                     </div>

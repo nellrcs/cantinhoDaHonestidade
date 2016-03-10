@@ -1,11 +1,12 @@
-html, body{height: 100%; width: 100%;}
+html, body{ width: 100%; overflow: hidden; }
 body{font-family:'Roboto', sans-serif; background: #f1f1f1; font-weight: 400;}
 body a{text-decoration: none !important;}
 body strong{font-weight: 700;}
 
-.center_icons_home{position: relative; width: 100%; height: 100%;}
-.icons_home{text-align: center; z-index: 1; left:0; right:0; margin-left: auto; margin-right: auto; height: 155px; position: absolute; top: 50%; margin-top: -77px;}
-.icons_home > a{display: inline-block; width: 128px; margin: 0 70px; text-align: center; color:#999; font-size: 18px; font-weight:700; padding-top: 135px;}
+.conteudo{ margin-top: 70px; height: 710px; overflow-y: scroll;}
+.center_icons_home{position: relative; width: 100%; height: 100%; margin-top: 250px;}
+.icons_home{text-align: center; left:0; right:0; margin-left: auto; margin-right: auto; height: 155px; }
+.icons_home > a{ text-align: center; color:#999; font-size: 18px; font-weight:700; padding-top: 135px; }
 
 .icons_home .usuarios_menu{background: url("../imagens/usuariosOn.png") center top no-repeat;}
 .icons_home .usuarios_menu:hover{background: url("../imagens/usuariosHover.png") center top no-repeat;}
@@ -16,11 +17,42 @@ body strong{font-weight: 700;}
 .icons_home .compras_menu{background: url("../imagens/comprasOn.png") center top no-repeat;}
 .icons_home .compras_menu:hover{background: url("../imagens/comprasHover.png") center top no-repeat;}
 
-.logout_sist{position: relative; width: 100%;}
-.logout_sist > h1{left: 15px; top: 8px; font-size: 22px; color:#42a3f4; font-weight: 500; font-style: italic; position: absolute; z-index: 2;}
-.logout_sist > a{padding: 5px 25px; color:#fff; font-size: 18px; font-weight: 500; background:#42a3f4; display: block; position: absolute; z-index: 2; right:15px; top:15px;}
-.logout_sist > a:hover{background: #999;}
+.logout_sist{position: fixed; z-index: 9999; top: 0; width: 100%; background: #333; display: block; min-height: 70px;}
+.logout_sist > h1{left: 15px; top: 17px; font-size: 32px; color:#42a3f4; position: absolute; z-index: 2;}
+.sair{padding: 5px 25px; color:#fff; font-size: 18px; font-weight: 500; background:#42a3f4; display: block; position: fixed; z-index: 9999999; right:15px; top:15px;}
+.sair:hover{ background: #999; cursor: pointer;}
 
+
+#title-bar {
+ -webkit-app-region: drag;
+ height: 24px; 
+ background-color: darkviolet;
+ padding: none;
+ margin: 0px; 
+}
+
+#title {
+	position: fixed;
+	top: 0px;
+	left: 6px; 
+}
+
+#title-bar-btns {
+	-webkit-app-region: no-drag;
+	position: fixed;
+	top: 0px;
+	right: 6px;
+}
+.topo{
+	font-size: 36px;
+	color: #fff !important;
+	margin-top: 10px;
+
+}
+.aviso{
+	color: #42a3f4;
+    font-size: 36px !important;
+}
 
 /*Páginas*/
 .dems_paginas{padding-top: 80px;}
@@ -40,6 +72,7 @@ body strong{font-weight: 700;}
 .listcomimagem2span .imageinfo{margin-top: 4px;}
 .listcomimagem2span .textinfo{margin-top: 22px;}
 .listcomimagem2span .textinfo > span{display: block;}
+ 
 
 .botacoes .editar{background: url("../imagens/editOn.png") no-repeat;}
 .botacoes .editar:hover{background: url("../imagens/editHover.png") no-repeat;}
@@ -65,6 +98,14 @@ body strong{font-weight: 700;}
 .bot_filtro_compras > input{background: #42a3f4; font-size: 14px; color:#fff; font-weight: 500; border:0; display: block; padding: 7px 15px; margin-top: 1px;}
 .bot_filtro_compras > input:hover{background: #999;s}
 /*Páginas*/
+.sair{
+	position: fixed; top: 0; z-index: 999999;
+}
+.d{
+	border: 1px red solid;
+	display: block;
+	height: 200px;
+}
 
 
 

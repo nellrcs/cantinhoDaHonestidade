@@ -12,7 +12,8 @@ let mainWindow;
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600});
+  //mainWindow = new BrowserWindow({width: 1024, height: 780,frame: false });
+  mainWindow = new BrowserWindow({width: 1024, height: 780});
 
   // and load the index.html of the app.
   mainWindow.loadURL('file://' + __dirname + '/index.html');
@@ -20,6 +21,7 @@ function createWindow () {
   mainWindow.setMenu(null);
 
   mainWindow.setResizable(false);
+
 
   // Open the DevTools.
   //mainWindow.webContents.openDevTools();
@@ -31,6 +33,11 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
+
+}
+
+function sair(){
+  BrowserWindow.close();
 }
 
 // This method will be called when Electron has finished

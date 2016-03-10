@@ -18,11 +18,13 @@
                         <div class="textinfo col-lg-6 col-md-6">{{prod.nome}}</div>
                         <div class="textinfo col-lg-3 col-md-3"><strong>R$ {{prod.valor}}</strong></div>
                         <div class="botacoes col-lg-2 col-md-2">
-                            <a ng-click="editar()" class="editar"></a>
-                            <a ng-click="" class="deletar"></a>
+                            <a ng-click="editar(prod)" class="editar"></a>
+                            <a ng-click="apagar(prod)" class="deletar"></a>
                         </div>
                     </div>
                     <!--LOOP-->
+                    <h1 ng-hide="produtos.length" class="aviso">Não existem produtos cadastrados</h1>
+
                 </div>
 
                 <div ng-show="estado.inserir">

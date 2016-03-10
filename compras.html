@@ -29,93 +29,27 @@
                 </form>
 
                 <div class="title_pages col-lg-12 col-md-12 col-sm-12 col-xs-12">Compras - <strong>Janeiro</strong></div>
+
                 <!--LOOP-->
-                <div class="listagem_elementos listcomimagem2span col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div ng-repeat="compra in compras" class="listagem_elementos listcomimagem2span col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="imageinfo col-lg-1 col-md-1">
-                        <img src="http://lorempixel.com/80/75/" alt="">
+                        <img ng-src="{{compra.imgProd}}" alt=""  class="img-responsive">
                     </div>
                     <div class="textinfo col-lg-4 col-md-4">
-                        <span>Nome do produto</span>
-                        <span><strong>R$ 35,00</strong></span>
+                        <span>{{compra.nomeProd}}</span>
+                        <span><strong>R$ {{compra.valorProd}}</strong></span>
                     </div>
                     <div class="textinfo col-lg-5 col-md-5">
-                        <span>Nome do cara</span>
-                        <span>andre@webinga.com.br</span>
+                        <span>{{compra.nomeCliente}}</span>
+                        <span>{{compra.emailCliente}}</span>
                     </div>
                     <div class="textinfo col-lg-2 col-md-2">
                         <span>Compra em:</span>
-                        <span><strong>20/10/2016</strong></span>
-                    </div>
-                </div>
-                <div class="listagem_elementos listcomimagem2span col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="imageinfo col-lg-1 col-md-1">
-                        <img src="http://lorempixel.com/80/75/" alt="">
-                    </div>
-                    <div class="textinfo col-lg-4 col-md-4">
-                        <span>Nome do produto</span>
-                        <span><strong>R$ 35,00</strong></span>
-                    </div>
-                    <div class="textinfo col-lg-5 col-md-5">
-                        <span>Nome do cara</span>
-                        <span>andre@webinga.com.br</span>
-                    </div>
-                    <div class="textinfo col-lg-2 col-md-2">
-                        <span>Compra em:</span>
-                        <span><strong>20/10/2016</strong></span>
-                    </div>
-                </div>
-                <div class="listagem_elementos listcomimagem2span col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="imageinfo col-lg-1 col-md-1">
-                        <img src="http://lorempixel.com/80/75/" alt="">
-                    </div>
-                    <div class="textinfo col-lg-4 col-md-4">
-                        <span>Nome do produto</span>
-                        <span><strong>R$ 35,00</strong></span>
-                    </div>
-                    <div class="textinfo col-lg-5 col-md-5">
-                        <span>Nome do cara</span>
-                        <span>andre@webinga.com.br</span>
-                    </div>
-                    <div class="textinfo col-lg-2 col-md-2">
-                        <span>Compra em:</span>
-                        <span><strong>20/10/2016</strong></span>
-                    </div>
-                </div>
-                <div class="listagem_elementos listcomimagem2span col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="imageinfo col-lg-1 col-md-1">
-                        <img src="http://lorempixel.com/80/75/" alt="">
-                    </div>
-                    <div class="textinfo col-lg-4 col-md-4">
-                        <span>Nome do produto</span>
-                        <span><strong>R$ 35,00</strong></span>
-                    </div>
-                    <div class="textinfo col-lg-5 col-md-5">
-                        <span>Nome do cara</span>
-                        <span>andre@webinga.com.br</span>
-                    </div>
-                    <div class="textinfo col-lg-2 col-md-2">
-                        <span>Compra em:</span>
-                        <span><strong>20/10/2016</strong></span>
-                    </div>
-                </div>
-                <div class="listagem_elementos listcomimagem2span col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="imageinfo col-lg-1 col-md-1">
-                        <img src="http://lorempixel.com/80/75/" alt="">
-                    </div>
-                    <div class="textinfo col-lg-4 col-md-4">
-                        <span>Nome do produto</span>
-                        <span><strong>R$ 35,00</strong></span>
-                    </div>
-                    <div class="textinfo col-lg-5 col-md-5">
-                        <span>Nome do cara</span>
-                        <span>andre@webinga.com.br</span>
-                    </div>
-                    <div class="textinfo col-lg-2 col-md-2">
-                        <span>Compra em:</span>
-                        <span><strong>20/10/2016</strong></span>
+                        <span><strong>{{compra.dataCliente}}</strong></span>
                     </div>
                 </div>
                 <!--LOOP-->
+                <h1 ng-hide="compras.length" class="aviso">Não existem compras registradas</h1>
 
                 <div class="totaldevedor col-lg-12 col-md-12 col-sm-12 col-xs-12">Total <strong>R$ 2.500,00</strong></div>
             </div>
