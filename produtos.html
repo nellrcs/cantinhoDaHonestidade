@@ -13,17 +13,19 @@
                     <!--LOOP-->
                     <div ng-repeat="prod in produtos" class="listagem_elementos listcomimagem col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="imageinfo col-lg-1 col-md-1">
-                            <img ng-src="{{'data:image/png;base64,'+prod.imagem.base64}}" class="img-responsive" alt="">
+
+                            <img ng-src="{{prod.foto_produto}}" class="img-responsive" alt="">                            
+
                         </div>
-                        <div class="textinfo col-lg-6 col-md-6">{{prod.nome}}</div>
-                        <div class="textinfo col-lg-3 col-md-3"><strong>R$ {{prod.valor}}</strong></div>
+                        <div class="textinfo col-lg-6 col-md-6">{{prod.nome_produto}}</div>
+                        <div class="textinfo col-lg-3 col-md-3"><strong>R$ {{prod.valor_produto}}</strong></div>
                         <div class="botacoes col-lg-2 col-md-2">
                             <a ng-click="editar(prod)" class="editar"></a>
                             <a ng-click="apagar(prod)" class="deletar"></a>
                         </div>
                     </div>
                     <!--LOOP-->
-                    <h1 ng-hide="produtos.length" class="aviso">Não existem produtos cadastrados</h1>
+                    <h1 ng-hide="produtos.length" class="aviso">Carregando...</h1>
 
                 </div>
 
@@ -32,49 +34,48 @@
                     <form  class="form_acoes col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-submit="salvar(produto)">
                         <label class="col-lg-12 col-md-12">
                             <span>Nome do produto:</span>
-                            <input type="text" ng-model="produto.nome" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
+                            <input type="text" ng-model="produto.nome_produto" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
                         </label>
 
                         <label class="col-lg-6 col-md-6 paddright">
                             <span>Valor do produto <strong>R$</strong>:</span>
-                            <input type="text" ng-model="produto.valor" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
+                            <input type="text" ng-model="produto.valor_produto" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
                         </label>
 
                         <label class="col-lg-6 col-md-6 paddleft">
                             <span>Imagem do produto:</span>
-                            <input type="file" ng-model="produto.imagem" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required" base-sixty-four-input>
+                            <input type="text" ng-model="produto.foto_produto" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         </label>
 
                         <div class="bot_sendform col-lg-12 col-md-12">
-                            <input type="submit"   class="radius5 send_form" value="CADASTRAR" />
+                            <input type="submit"  class="radius5 send_form" value="CADASTRAR" />
                         </div>
 
                     </form>
                 </div>
 
                 <div ng-show="estado.editar">
-                    <div class="title_pages col-lg-12 col-md-12 col-sm-12 col-xs-12">Usuários - <strong>Editar usuário</strong></div>
-                    <form action="" method="post" name="form_acoes" id="form_acoes" class="form_acoes col-lg-12 col-md-12 col-sm-12 col-xs-12" enctype="multipart/form-data">
+                    <div class="title_pages col-lg-12 col-md-12 col-sm-12 col-xs-12">Produtos - <strong>Editar novo</strong></div>
+                    <form  class="form_acoes col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-submit="salvar(produto)">
                         <label class="col-lg-12 col-md-12">
                             <span>Nome do produto:</span>
-                            <input type="text" name="nome" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
+                            <input type="text" ng-model="produto.nome_produto" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
                         </label>
 
                         <label class="col-lg-6 col-md-6 paddright">
                             <span>Valor do produto <strong>R$</strong>:</span>
-                            <input type="text" name="valor_produto" id="valor_produto" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
+                            <input type="text" ng-model="produto.valor_produto" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
                         </label>
 
                         <label class="col-lg-6 col-md-6 paddleft">
                             <span>Imagem do produto:</span>
-                            <input type="file" name="imagem_produto" id="imagem_produto" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
+                            <input type="text" ng-model="produto.foto_produto" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         </label>
 
-                        <input type="hidden" name="imagem_atual" id="imagem_atual" value="IMAGEM ATUAL AQUI">
-
                         <div class="bot_sendform col-lg-12 col-md-12">
-                            <input type="submit" name="send_form" class="radius5 send_form" id="send_form" value="ATUALIZAR" />
+                            <input type="submit"   class="radius5 send_form" value="CADASTRAR" />
                         </div>
+
                     </form>
                 </div>
 
