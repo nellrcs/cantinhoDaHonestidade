@@ -13,9 +13,7 @@
                     <!--LOOP-->
                     <div ng-repeat="prod in produtos" class="listagem_elementos listcomimagem col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="imageinfo col-lg-1 col-md-1">
-
-                            <img ng-src="{{prod.foto_produto}}" class="img-responsive" alt="">                            
-
+                            <img ng-src="{{prod.foto_produto}}" width="70px" class="img-responsive" alt="">                            
                         </div>
                         <div class="textinfo col-lg-6 col-md-6">{{prod.nome_produto}}</div>
                         <div class="textinfo col-lg-3 col-md-3"><strong>R$ {{prod.valor_produto}}</strong></div>

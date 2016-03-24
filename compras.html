@@ -1,57 +1,80 @@
 <div class="dems_paginas">
-    <div class="container">
+    <div class="container" ng-init="inicial()">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
                 <div class="bots_returns_pgs col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <a href="#/home" class="radius5">PÁGINA INICIAL</a>
                 </div>
+                
 
-                <form name="form_filtro_compras" id="form_filtro_compras" method="post" action="" class="filtro_compras col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <form name="form_filtro_compras" ng-submit="listar(comp)" class="filtro_compras col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <label class="col-lg-2 col-md-2">
-                        <select name="filtro_mes" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 radius5">
-                            <option value="1">Janeiro</option>
-                            <option value="2">Fevereiro</option>
-                            <option value="3">Março</option>
+                        <select name="filtro_mes" ng-model="comp.anoMes" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 radius5">
+             
+                        <option  ng-repeat="mes in meses" value="{{mes.ano}}/{{mes.numero}}">{{mes.nome}}</option>
+                   
                         </select>
                     </label>
 
                     <label class="col-lg-5 col-md-5">
-                        <select name="filtro_usuario" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 radius5">
-                            <option value="22">Nome do usuário / andre@webinga.com.br</option>
-                            <option value="22">Nome do usuário / andre@webinga.com.br</option>
+                        <select name="filtro_usuario" ng-model="comp.idClient" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 radius5">
+                            <option ng-repeat="user in usuarios" value="{{user.ID}}">Nome do usuário / {{user.nome_cliente}}</option>
                             <option value="">TODOS</option>
                         </select>
                     </label>
 
                     <div class="bot_filtro_compras col-lg-5 col-md-5">
-                        <input type="submit" name="send_filtro_compras" id="send_filtro_compras" class="send_filtro_compras radius5" value="FILTRAR" />
+                        <input type="submit" class="send_filtro_compras radius5" value="FILTRAR" />
                     </div>
                 </form>
 
-                <div class="title_pages col-lg-12 col-md-12 col-sm-12 col-xs-12">Compras - <strong>Janeiro</strong></div>
+       <!--          <div class="title_pages col-lg-12 col-md-12 col-sm-12 col-xs-12">Compras - <strong>Janeiro</strong></div> -->
 
+                
+                <div>  
+                    <!--LOOP-->
+        
+                    <div ng-repeat="compra in compras" class="listagem_elementos listcomimagem2span col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-1 col-md-1">
+                            <img class="img-responsive" width="50px" ng-src="{{compra.foto_produto}}" >
+                        </div>
+                        <div class="textinfo col-lg-4 col-md-4">
+                            <span>{{compra.nome_produto}}</span>
+                            <span><strong>R$ {{compra.valor_compra}}</strong></span>
+                        </div>
+                        <div class="textinfo col-lg-5 col-md-5">
+                            <span>{{compra.nome_cliente}}</span>
+                            <span>{{compra.email_cliente}}</span>
+                        </div>
+                        <div class="textinfo col-lg-2 col-md-2">
+                            <span>Compra em:</span>
+                            <span><strong>{{compra.data}}</strong></span>
+                            
+                            <label class="c-input c-checkbox">
+                                <input type="checkbox" ng-model="compra.status" ng-click="addPagamentos(compra)" ng-checked="compra.status != 0">
+                                <span class="c-indicator"></span>
+                            </label>
+                            
+                            <a ng-show="compra.status == 0" class="text-danger"> Devendo </a>
+                            <a ng-show="compra.status != 0" class="text-success"> Pago </a>
+                     
+                        </div>
+                    </div>
+                </div>  
                 <!--LOOP-->
-                <div ng-repeat="compra in compras" class="listagem_elementos listcomimagem2span col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="imageinfo col-lg-1 col-md-1">
-                        <img ng-src="{{compra.imgProd}}" alt="">
-                    </div>
-                    <div class="textinfo col-lg-4 col-md-4">
-                        <span>{{compra.nomeProd}}</span>
-                        <span><strong>R$ {{compra.valorProd}}</strong></span>
-                    </div>
-                    <div class="textinfo col-lg-5 col-md-5">
-                        <span>{{compra.nomeCliente}}</span>
-                        <span>{{compra.emailCliente}}</span>
-                    </div>
-                    <div class="textinfo col-lg-2 col-md-2">
-                        <span>Compra em:</span>
-                        <span><strong>{{compra.dataCliente}}</strong></span>
-                    </div>
+                <h1 ng-show="carregando && usuarios.length" class="aviso"> Carregando... </h1>
+                
+                <div class="row">
+                    <h3 class="pull-left col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span class="text-info">Total : <strong> R$ {{ calculaTotais().total }} </strong></span>
+                    <br>
+                    <span class="text-warning">Caixa : <strong> R$ {{ calculaTotais().caixa }} </strong></span>
+                    <br>
+                    <span class="text-danger">Devendo : R$ - <strong>{{ calculaTotais().total - calculaTotais().pago }} </strong></span>
+                    <br>
+                    </h3>
                 </div>
-                <!--LOOP-->
-                <h1 ng-hide="compras.length" class="aviso">Não existem compras registradas</h1>
-
-                <div class="totaldevedor col-lg-12 col-md-12 col-sm-12 col-xs-12">Total <strong>R$ 2.500,00</strong></div>
             </div>
         </div>
     </div>

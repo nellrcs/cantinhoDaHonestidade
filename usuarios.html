@@ -2,18 +2,18 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="bots_returns_pgs col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <a href="#/home" class="radius5">PÁGINA INICIAL</a>
-                    <a ng-click="inicial()" class="radius5">LISTAR TODOS</a>
-                    <a ng-click="inserir()" class="radius5">INSERIR NOVO</a>
-                </div>
+                    <div class="bots_returns_pgs col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <a href="#/home" class="radius5">PÁGINA INICIAL</a>
+                        <a ng-click="inicial()" class="radius5">LISTAR TODOS</a>
+                        <a ng-click="inserir()" class="radius5">INSERIR NOVO</a>
+                    </div>
       
                     <div ng-show="estado.listar">   
                     <div class="title_pages col-lg-12 col-md-12 col-sm-12 col-xs-12">Usuários - <strong>Listando todos</strong></div>
                     <!--LOOP-->
                     <div ng-repeat="user in usuarios" class="listagem_elementos col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="imageinfo col-lg-1 col-md-1">
-                            <img ng-src="http://chart.apis.google.com/chart?cht=qr&chl={{user.email_cliente}}&chs=350x350&chld=H|0" class="img-responsive" alt="">
+                            <img ng-src="http://chart.apis.google.com/chart?cht=qr&chl={{user.email_cliente}}&chs=350x350&chld=H|0" width="70px" class="img-responsive" alt="">
                         </div>
                         <div class="textinfo col-lg-4 col-md-4">{{user.nome_cliente}}</div>
                         <div class="textinfo col-lg-5 col-md-5">{{user.email_cliente}}</div>
@@ -69,11 +69,19 @@
                             <span>E-mail:</span>
                             <input type="text" ng-model="usuario.email_cliente" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
                         </label>
+
+  <!--                       <label class="col-lg-6 col-md-6 paddright">
+      <span>Valor caixa:</span>
+      <input type="text" ng-model="usuario.caixa" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
+  </label> -->
+
+
 <!--
                         <label class="col-lg-6 col-md-6 paddright">
                             <span>Login de acesso:</span>
                             <input type="text" ng-model="usuario.login" class="inpttxt_form radius5 col-lg-12 col-md-12 col-sm-12 col-xs-12" required="required">
                         </label>
+
 
                         <label class="col-lg-6 col-md-6 paddleft">
                             <span>Senha:</span>
