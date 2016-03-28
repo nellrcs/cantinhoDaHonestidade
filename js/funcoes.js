@@ -1,17 +1,20 @@
 var app = angular.module('aplicacao',['ngRoute','naif.base64']);
 app.service( 'serverREST', function($http){
 	return {
-		"token": JSON.stringify({"token":"b73ba53c34ca234"}),
+		"token": "",
 		"enviar":function(rota){
 			return {
 			    method: 'POST',
-			    headers: {'Content-Type': undefined },
+			    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 			    url : rota,
-			    data : null
+			    data : {}
 			};
 		},
-		"listaHttp": function(rota){	
-		 	return $http(this.enviar(rota)).then(function successCallback(response) {	
+		"listaHttp": function(rota){
+			var req = this.enviar(rota);
+	 		req.data.token = this.token;	
+
+		 	return $http(req).then(function successCallback(response) {	
 		 		return response.data;
 		    }, function errorCallback(response) {
 		    	return response;	
@@ -20,6 +23,8 @@ app.service( 'serverREST', function($http){
  		"salvaHttp": function(rota,obj){	
  			var req = this.enviar(rota);
 	 		req.data = JSON.stringify(obj);
+	 		req.data.token = this.token;
+
 		 	$http(req).then(function successCallback(response) {
 		 		console.log(response);
 		    }, function errorCallback(response) {
@@ -27,7 +32,12 @@ app.service( 'serverREST', function($http){
 		  	});
  		},
  		"apagaHttp":function(rota,idApagar){
-		 	$http(this.enviar(rota+idApagar)).then(function successCallback(response) {
+
+ 			var req = this.enviar(rota+idApagar);
+	 		req.data = JSON.stringify(obj);
+	 		req.data.token = this.token;
+
+		 	$http(req).then(function successCallback(response) {
 		 		console.log(response);
 		    }, function errorCallback(response) {
 		    	console.log(response);	
