@@ -22,8 +22,8 @@ app.service( 'serverREST', function($http){
  		},
  		"salvaHttp": function(rota,obj){	
  			var req = this.enviar(rota);
+ 			obj.token = this.token;
 	 		req.data = JSON.stringify(obj);
-	 		req.data.token = this.token;
 
 		 	$http(req).then(function successCallback(response) {
 		 		console.log(response);
