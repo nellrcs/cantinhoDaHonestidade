@@ -1,31 +1,13 @@
-# electron-quick-start
+# Cantinho
 
-**Clone and run for a quick way to see an Electron in action.**
+A aplicação em Node.js que desenvolvi é um sistema de gerenciamento simplificado para controle de compras em estabelecimentos. Com uma interface intuitiva, os usuários podem registrar produtos adquiridos, acompanhar gastos e manter um histórico organizado das transações. A simplicidade e praticidade são os principais destaques, tornando a experiência de uso eficiente e direta.
 
-This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start) within the Electron documentation.
+![image](https://github.com/user-attachments/assets/483ec085-bf0f-40eb-a125-be4ddc59ea98)
 
-A basic Electron application needs just these files:
+![image](https://github.com/user-attachments/assets/dcfc4638-c3e0-41c2-8461-83bdb2d529c3)
 
-- `index.html` - A web page to render.
-- `main.js` - Starts the app and creates a browser window to render HTML.
-- `package.json` - Points to the app's main file and lists its details and dependencies.
+![image](https://github.com/user-attachments/assets/18434ebf-68a9-42ed-9e26-dcd600b84ce4)
 
-You can learn more about each of these components within the [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start).
+![image](https://github.com/user-attachments/assets/a1b2d575-fbc5-4417-a643-55c007575450)
 
-## To Use
-
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
-
-```bash
-# Clone this repository
-git clone https://github.com/atom/electron-quick-start
-# Go into the repository
-cd electron-quick-start
-# Install dependencies and run the app
-npm install && npm start
-```
-
-Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/latest).
-
-#### License [CC0 (Public Domain)](LICENSE.md)
-#
+![image](https://github.com/user-attachments/assets/e8a56d1c-31dc-4f17-baed-814dc9a49a7a)
